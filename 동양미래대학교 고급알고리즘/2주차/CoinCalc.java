@@ -1,11 +1,10 @@
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Map.Entry;
 
 /**
  * CoinCalc
  * link> 백준 11047
  */
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class CoinCalc {
 
@@ -22,8 +21,7 @@ public class CoinCalc {
 class Cash {
     static int cost;
     static int[] coin;
-    static int cnt;
-    static Map<Integer, Integer> stat = new LinkedHashMap<>();;
+    static Map<Integer, Integer> stat = new LinkedHashMap<>();
 
     public Cash(int cst) {
         cost = cst;
@@ -34,18 +32,21 @@ class Cash {
     }
 
     public void calc() {
+        int cnt;
         for (int i : coin) {
-            cnt += cost / i;
-            stat.put(i, cost / i);
+            cnt = cost / i;
+            if (cnt > 0)
+                stat.put(i, cnt);
+
             cost %= i;
         }
         printStat();
     }
 
     private void printStat() {
-        for (Entry<Integer, Integer> st : stat.entrySet()) {
-            System.out.printf("%d원 동전 개수>%d\n", st.getKey(), st.getValue());
+        for (var st : stat.entrySet()) {
+            System.out.printf("%5d원권 개수>%d\n", st.getKey(), st.getValue());
         }
-        System.out.println("필요한 동전의 개수>" + cnt);
+        System.out.println("필요한 현금 수>" + stat.values().stream().mapToInt(i -> i).sum());
     }
 }
