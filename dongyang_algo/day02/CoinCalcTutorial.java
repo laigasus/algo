@@ -11,6 +11,7 @@ public class CoinCalcTutorial {
         calc(coin, cost);
     }
 
+    @SuppressWarnings("all")
     void createInfo(int cost, int... values) {
         this.cost = cost;
     }
