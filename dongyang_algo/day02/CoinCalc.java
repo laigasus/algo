@@ -1,8 +1,5 @@
+package dongyang_algo.day02;
 
-/**
- * CoinCalc
- * link> 백준 11047
- */
 import java.util.LinkedHashMap;
 import java.util.Map;
 

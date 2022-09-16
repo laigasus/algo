@@ -1,6 +1,4 @@
-/**
- * CoinCalcTutorial
- */
+package dongyang_algo.day02;
 
 public class CoinCalcTutorial {
 

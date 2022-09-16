@@ -1,3 +1,5 @@
+package sinagong_algo;
+
 public class Recursive {
     static int result;
 
