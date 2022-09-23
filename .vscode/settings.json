@@ -1,6 +1,14 @@
 {
     "java.project.sourcePaths": [
-        ""
+        "dongyang_algo"
     ],
-    "java.dependency.packagePresentation": "hierarchical"
+    "java.dependency.packagePresentation": "hierarchical",
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--disable=W0105",
+        "--disable=missing-class-docstring",
+        "--disable=missing-function-docstring",
+        "--disable=missing-module-docstring",
+        "--diaavle=invalid-name"
+    ]
 }
