@@ -1,0 +1,140 @@
+{
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch MazeEscape",
+            "request": "launch",
+            "mainClass": "day07.MazeEscape",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch DFS",
+            "request": "launch",
+            "mainClass": "day06.DFS",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch Icecream",
+            "request": "launch",
+            "mainClass": "day06.Icecream",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch CoinCalc",
+            "request": "launch",
+            "mainClass": "day02.CoinCalc",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch CoinCalcTutorial",
+            "request": "launch",
+            "mainClass": "day02.CoinCalcTutorial",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch ATM",
+            "request": "launch",
+            "mainClass": "day03.ATM",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch MulOrAdd",
+            "request": "launch",
+            "mainClass": "day03.MulOrAdd",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch MulOrAddTutorial",
+            "request": "launch",
+            "mainClass": "day03.MulOrAddTutorial",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch UntilOne",
+            "request": "launch",
+            "mainClass": "day03.UntilOne",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch UntilOneTutorial",
+            "request": "launch",
+            "mainClass": "day03.UntilOneTutorial",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch StringSumToNum",
+            "request": "launch",
+            "mainClass": "day04.StringSumToNum",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch StringSumToNumTutorial",
+            "request": "launch",
+            "mainClass": "day04.StringSumToNumTutorial",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch ZeroFinderStr",
+            "request": "launch",
+            "mainClass": "day04.ZeroFinderStr",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch ZeroFinderStrTutorial",
+            "request": "launch",
+            "mainClass": "day04.ZeroFinderStrTutorial",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch IsTimeHaveThree",
+            "request": "launch",
+            "mainClass": "day05.IsTimeHaveThree",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch KnightsMove",
+            "request": "launch",
+            "mainClass": "day05.KnightsMove",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch Traversal",
+            "request": "launch",
+            "mainClass": "day05.Traversal",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch TraversalTutorial",
+            "request": "launch",
+            "mainClass": "day05.TraversalTutorial",
+            "projectName": "algo_4e407f35"
+        }
+    ]
+}

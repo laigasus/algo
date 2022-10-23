@@ -13,5 +13,6 @@ public class StringSumToNumTutorial {
             sNum += cNum[i] - '0';
         }
         System.out.println(sum);
+        scan.close();
     }
 }
