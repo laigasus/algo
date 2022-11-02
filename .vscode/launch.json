@@ -6,6 +6,132 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Bitwise3_1",
+            "request": "launch",
+            "mainClass": "day09.Bitwise3_1",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch Bitwise3",
+            "request": "launch",
+            "mainClass": "day09.Bitwise3",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch Bitwise2",
+            "request": "launch",
+            "mainClass": "day09.Bitwise2",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch Bitwise1",
+            "request": "launch",
+            "mainClass": "day09.Bitwise1",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch DFSRecursive",
+            "request": "launch",
+            "mainClass": "day08.ch6.DFSRecursive",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch KnightsMove",
+            "request": "launch",
+            "mainClass": "day08.ch5.KnightsMove",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch IsTimeHaveThree",
+            "request": "launch",
+            "mainClass": "day08.ch5.IsTimeHaveThree",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch StringSumToNum",
+            "request": "launch",
+            "mainClass": "day08.ch4.StringSumToNum",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch MulOrAdd",
+            "request": "launch",
+            "mainClass": "day08.ch3.MulOrAdd",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch CoinCalc",
+            "request": "launch",
+            "mainClass": "day08.ch2.CoinCalc",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ppap",
+            "request": "launch",
+            "mainClass": "day08.ch7.Ppap",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch ZeroFinderStr",
+            "request": "launch",
+            "mainClass": "day08.ch4.ZeroFinderStr",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ha",
+            "request": "launch",
+            "mainClass": "day08.ch6.Ha",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch BFS",
+            "request": "launch",
+            "mainClass": "day08.ch6.BFS",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch DFS",
+            "request": "launch",
+            "mainClass": "day08.ch6.DFS",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch ZeroFinderStr",
+            "request": "launch",
+            "mainClass": "day08.ZeroFinderStr",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch StringSumToNum",
+            "request": "launch",
+            "mainClass": "day08.StringSumToNum",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch ATM",
+            "request": "launch",
+            "mainClass": "day08.ATM",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
             "name": "Launch MazeEscape",
             "request": "launch",
             "mainClass": "day07.MazeEscape",
