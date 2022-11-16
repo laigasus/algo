@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Sort",
+            "request": "launch",
+            "mainClass": "day10.Sort",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch CreateLargestValue",
+            "request": "launch",
+            "mainClass": "day10.CreateLargestValue",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch CreateLargeValue",
+            "request": "launch",
+            "mainClass": "day10.CreateLargeValue",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
             "name": "Launch Bitwise3_1",
             "request": "launch",
             "mainClass": "day09.Bitwise3_1",
