@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch SecretMapTuto",
+            "request": "launch",
+            "mainClass": "day11.SecretMapTuto",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch CompressAndFindShortestLength",
+            "request": "launch",
+            "mainClass": "day11.CompressAndFindShortestLength",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch SecretMap",
+            "request": "launch",
+            "mainClass": "day11.SecretMap",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
             "name": "Launch Sort",
             "request": "launch",
             "mainClass": "day10.Sort",
