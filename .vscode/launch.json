@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch StringArraySortTut",
+            "request": "launch",
+            "mainClass": "day12.StringArraySortTut",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch StringArraySort",
+            "request": "launch",
+            "mainClass": "day12.StringArraySort",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch FindElement",
+            "request": "launch",
+            "mainClass": "day12.FindElement",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
             "name": "Launch SecretMapTuto",
             "request": "launch",
             "mainClass": "day11.SecretMapTuto",
