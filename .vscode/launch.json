@@ -6,6 +6,167 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch StringArraySort",
+            "request": "launch",
+            "mainClass": "test.ch12.StringArraySort",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch FindElement",
+            "request": "launch",
+            "mainClass": "test.ch12.FindElement",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch CompressAndFindShortestLength",
+            "request": "launch",
+            "mainClass": "test.ch11.CompressAndFindShortestLength",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch SecretMap",
+            "request": "launch",
+            "mainClass": "test.ch11.SecretMap",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch CreateLargestValue",
+            "request": "launch",
+            "mainClass": "test.ch10.CreateLargestValue",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch Bitwise3",
+            "request": "launch",
+            "mainClass": "test.ch9.Bitwise3",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch Bitwise2",
+            "request": "launch",
+            "mainClass": "test.ch9.Bitwise2",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch Bitwise1",
+            "request": "launch",
+            "mainClass": "test.ch9.Bitwise1",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch CountBasePrimeNumber",
+            "request": "launch",
+            "mainClass": "day15.ch13.CountBasePrimeNumber",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "day15.ch13.Main",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch GetPrimeNumberTest",
+            "request": "launch",
+            "mainClass": "day15.ch13.GetPrimeNumberTest",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch GetPrimeNumber",
+            "request": "launch",
+            "mainClass": "day15.ch13.GetPrimeNumber",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch IsPrimeNumber",
+            "request": "launch",
+            "mainClass": "day15.ch13.IsPrimeNumber",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch StringArraySort",
+            "request": "launch",
+            "mainClass": "day15.ch12.StringArraySort",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch FindElement",
+            "request": "launch",
+            "mainClass": "day15.ch12.FindElement",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch SecretMap",
+            "request": "launch",
+            "mainClass": "day15.ch11.SecretMap",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch CreateLargestValue",
+            "request": "launch",
+            "mainClass": "day15.ch10.CreateLargestValue",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch Bitwise2",
+            "request": "launch",
+            "mainClass": "day15.ch9.Bitwise2",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch Bitwise1",
+            "request": "launch",
+            "mainClass": "day15.ch9.Bitwise1",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch CountBasePrimeNumber",
+            "request": "launch",
+            "mainClass": "day13.CountBasePrimeNumber",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch CountPrimeNumber",
+            "request": "launch",
+            "mainClass": "day13.CountPrimeNumber",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch GetPrimeNumber",
+            "request": "launch",
+            "mainClass": "day13.GetPrimeNumber",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
+            "name": "Launch IsPrimeNumber",
+            "request": "launch",
+            "mainClass": "day13.IsPrimeNumber",
+            "projectName": "algo_4e407f35"
+        },
+        {
+            "type": "java",
             "name": "Launch StringArraySortTut",
             "request": "launch",
             "mainClass": "day12.StringArraySortTut",
