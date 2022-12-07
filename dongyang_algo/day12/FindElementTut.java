@@ -1,6 +1,6 @@
 package day12;
 
-public class FindElement {
+public class FindElementTut {
     public static void main(String[] args) {
         int[] arr = { 5, 1, 4, 3, 6, 8, 10, 7, 9 };
         int n = arr.length;
