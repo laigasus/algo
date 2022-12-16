@@ -1,0 +1,8 @@
+package test2.ch9;
+
+public class Bitwise2 {
+    public static void main(String[] args) {
+        String str = "GeekSfOrgEEKs";
+        str.chars().mapToObj(i -> (char) (i ^ 32)).toList().forEach(System.out::print);
+    }
+}
