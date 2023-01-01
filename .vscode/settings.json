@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
-        "dongyang_algo"
+        "dongyang_algo",
+        "baekjoon"
     ],
     "java.dependency.packagePresentation": "hierarchical",
     "python.linting.pylintEnabled": true,

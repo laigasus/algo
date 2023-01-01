@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch P2557",
+            "request": "launch",
+            "mainClass": "P2557",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
             "name": "Launch ArrayRangeSum",
             "request": "launch",
             "mainClass": "test4.ch14.ArrayRangeSum",
