@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Sia",
+            "request": "launch",
+            "mainClass": "Sia",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P15552",
+            "request": "launch",
+            "mainClass": "P15552",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P25304",
+            "request": "launch",
+            "mainClass": "P25304",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P8393",
+            "request": "launch",
+            "mainClass": "P8393",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P10950",
+            "request": "launch",
+            "mainClass": "P10950",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P2739",
+            "request": "launch",
+            "mainClass": "P2739",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
             "name": "Launch P2480",
             "request": "launch",
             "mainClass": "P2480",
