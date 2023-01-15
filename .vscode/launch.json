@@ -6,6 +6,55 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch P8958",
+            "request": "launch",
+            "mainClass": "P8958",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P1546",
+            "request": "launch",
+            "mainClass": "P1546",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P3052",
+            "request": "launch",
+            "mainClass": "P3052",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P5597",
+            "request": "launch",
+            "mainClass": "P5597",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P2562",
+            "request": "launch",
+            "mainClass": "P2562",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P10818",
+            "request": "launch",
+            "mainClass": "P10818",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P1110",
+            "request": "launch",
+            "mainClass": "P1110",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
             "name": "Launch P10871",
             "request": "launch",
             "mainClass": "P10871",
