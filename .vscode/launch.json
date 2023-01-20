@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch P2775",
+            "request": "launch",
+            "mainClass": "P2775",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P10250",
+            "request": "launch",
+            "mainClass": "P10250",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P2869",
+            "request": "launch",
+            "mainClass": "P2869",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P1193",
+            "request": "launch",
+            "mainClass": "P1193",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
             "name": "Launch P2292",
             "request": "launch",
             "mainClass": "P2292",
