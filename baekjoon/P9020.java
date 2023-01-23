@@ -2,29 +2,32 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class P4948 {
-    public static int[] prime = new int[246913];
-    public static int[] cntPrime = new int[246913];
+public class P9020 {
+    static int[] prime = new int[10000];
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
+
         initPrime();
 
-        while (true) {
+        int T = Integer.parseInt(br.readLine());
+
+        for (int i = 0; i < T; i++) {
             int n = Integer.parseInt(br.readLine());
-            if (n == 0) {
-                break;
-            } else {
-                sb.append(cntPrime[2 * n] - cntPrime[n]).append("\n");
+            for (int j = n / 2;; j--) {
+                if (prime[j] == 0 && prime[n - j] == 0) {
+                    sb.append(j).append(" ").append(n - j).append("\n");
+                    break;
+                }
             }
         }
+
         br.close();
         System.out.print(sb);
     }
 
     static void initPrime() {
-        int cnt = 0;
         prime[0] = 1;
         prime[1] = 1;
 
@@ -34,13 +37,6 @@ public class P4948 {
                     prime[i * j] = 1;
                 }
             }
-        }
-
-        for (int i = 0; i < prime.length; i++) {
-            if (prime[i] == 0) {
-                cnt++;
-            }
-            cntPrime[i] = cnt;
         }
     }
 }
