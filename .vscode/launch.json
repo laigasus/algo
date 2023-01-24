@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch P2563",
+            "request": "launch",
+            "mainClass": "P2563",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P2566",
+            "request": "launch",
+            "mainClass": "P2566",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P2738",
+            "request": "launch",
+            "mainClass": "P2738",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
             "name": "Launch Sibal",
             "request": "launch",
             "mainClass": "Sibal",
