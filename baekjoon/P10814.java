@@ -27,15 +27,15 @@ public class P10814 {
         Collections.sort(list, new Comparator<Member>() {
             @Override
             public int compare(Member m1, Member m2) {
-                if (m1.getAge() == m2.getAge()) {
-                    return m1.getNo() - m2.getNo();
+                if (m1.age == m2.age) {
+                    return m1.no - m2.no;
                 } else {
-                    return m1.getAge() - m2.getAge();
+                    return m1.age - m2.age;
                 }
             }
         });
 
-        list.forEach(m -> sb.append(m.getAge()).append(" ").append(m.getName()).append("\n"));
+        list.forEach(m -> sb.append(m.age).append(" ").append(m.name).append("\n"));
         System.out.print(sb);
     }
 }
@@ -46,21 +46,9 @@ class Member {
     String name;
 
     public Member(int no, int age, String name) {
+        super();
         this.no = no;
         this.age = age;
         this.name = name;
     }
-
-    int getNo() {
-        return no;
-    }
-
-    int getAge() {
-        return age;
-    }
-
-    String getName() {
-        return name;
-    }
-
 }
