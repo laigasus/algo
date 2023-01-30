@@ -12,7 +12,7 @@ public class P1978 {
         int len = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
         br.close();
-        List<Integer> isDecimalList = new ArrayList<>();
+        List<Integer> isDecimalList = new ArrayList<>(len);
         while (st.hasMoreTokens()) {
             isDecimalList.add(Integer.parseInt(st.nextToken()));
         }

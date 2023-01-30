@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class P11720 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int len = Integer.parseInt(br.readLine());
+        Integer.parseInt(br.readLine());
         System.out.println(Arrays.stream(br.readLine().split("")).mapToInt(i -> Integer.parseInt(i)).sum());
         br.close();
     }

@@ -12,7 +12,7 @@ public class P10250 {
         for (int i = 1; i <= T; i++) {
             st = new StringTokenizer(br.readLine(), " ");
             int H = Integer.parseInt(st.nextToken());
-            int W = Integer.parseInt(st.nextToken());
+            Integer.parseInt(st.nextToken());
             int N = Integer.parseInt(st.nextToken());
 
             if (N % H == 0) {
