@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch P1010",
+            "request": "launch",
+            "mainClass": "P1010",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Icecream",
+            "request": "launch",
+            "mainClass": "day08.ch6.Icecream",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch P1649",
+            "request": "launch",
+            "mainClass": "P1649",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
             "name": "Launch P11051",
             "request": "launch",
             "mainClass": "P11051",
