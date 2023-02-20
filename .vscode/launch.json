@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch P1541",
+            "request": "launch",
+            "mainClass": "P1541",
+            "projectName": "algo_c8151d0c"
+        },
+        {
+            "type": "java",
             "name": "Launch P11399",
             "request": "launch",
             "mainClass": "P11399",
