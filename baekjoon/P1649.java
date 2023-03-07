@@ -18,6 +18,7 @@ public class P1649 {
         dfs(N, M, 0);
         System.out.println(sb);
 
+        in.close();
     }
 
     public static void dfs(int N, int M, int depth) {
