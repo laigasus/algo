@@ -3,7 +3,7 @@ package day11;
 public class CompressAndFindShortestLength {
     public static void main(String[] args) {
         String str = "aabbaccc";
-        String result="";
+        String result = "";
         for (int i = 0; i < str.length(); i++) {
             int count = 1;
             while (i < str.length() - 1
@@ -11,7 +11,7 @@ public class CompressAndFindShortestLength {
                 count++;
                 i++;
             }
-            result+=count+""+str.charAt(i);
+            result += count + "" + str.charAt(i);
         }
         System.out.println(result);
     }
