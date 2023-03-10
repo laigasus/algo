@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "P11286",
+            "request": "launch",
+            "mainClass": "P11286",
+            "projectName": "algo_452652e6"
+        },
+        {
+            "type": "java",
+            "name": "P1927",
+            "request": "launch",
+            "mainClass": "P1927",
+            "projectName": "algo_452652e6"
+        },
+        {
+            "type": "java",
             "name": "Icecream",
             "request": "launch",
             "mainClass": "day06.Icecream",
