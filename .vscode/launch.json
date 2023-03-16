@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "P24313",
+            "request": "launch",
+            "mainClass": "P24313",
+            "projectName": "algo_452652e6"
+        },
+        {
+            "type": "java",
+            "name": "P24267",
+            "request": "launch",
+            "mainClass": "P24267",
+            "projectName": "algo_452652e6"
+        },
+        {
+            "type": "java",
             "name": "P24265",
             "request": "launch",
             "mainClass": "P24265",
