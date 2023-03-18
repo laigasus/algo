@@ -20,7 +20,7 @@ public class P2485 {
 
         minDiff = diff[0];
         for (int i = 1; i < diff.length; i++) {
-            minDiff = Math.min(minDiff, GCD(minDiff, diff[i]));
+            minDiff = GCD(minDiff, diff[i]);
         }
 
         int first = trees[0], last = trees[N - 1];
