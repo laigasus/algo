@@ -11,13 +11,14 @@ public class P3273 {
         boolean[] arr = new boolean[2000001];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             arr[Integer.parseInt(st.nextToken())] = true;
         }
+
         int cnt = 0;
         int x = Integer.parseInt(br.readLine());
 
-        for (int i = 0; i <= x / 2; i++) {
+        for (int i = 1; i <= x / 2; i++) {
             if (arr[i] & arr[x - i] & (i != x - i)) {
                 cnt++;
             }
