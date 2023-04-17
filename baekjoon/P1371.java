@@ -10,7 +10,8 @@ public class P1371 {
         int[] alphabet = new int[26];
         String str = "";
         while ((str = br.readLine()) != null) {
-            for (char c : str.toCharArray()) {
+            for (int i = 0; i < str.length(); i++) {
+                char c = str.charAt(i);
                 if (c == ' ') {
                     continue;
                 }
