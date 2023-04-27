@@ -15,11 +15,12 @@ public class P2436 {
 
         int a = 0, b = 0;
         for (int i = gcm; i <= sqrt; i += gcm) {
-            if (n % i == 0) {
-                if (gcd(i, n / i) == gcm) {
-                    a = i;
-                    b = (int) (n / i);
-                }
+            if (n % i != 0) {
+                continue;
+            }
+            if (gcd(i, n / i) == gcm) {
+                a = i;
+                b = (int) (n / i);
             }
         }
 
