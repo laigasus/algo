@@ -11,7 +11,6 @@ public class P24479 {
     static List<List<Integer>> graph;
     static int[] check;
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static StringTokenizer st;
     static int depth = 1;
 
     public static void main(String[] args) throws IOException {
