@@ -5,12 +5,10 @@ public class P2163 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        int count = 0;
+        int n = sc.nextInt(), m = sc.nextInt();
+        sc.close();
 
-        count = m * n - 1;
-        System.out.println(count);
+        System.out.println(m * n - 1);
     }
 
 }
