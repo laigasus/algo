@@ -10,9 +10,8 @@ public class P7562 {
 
     static int[] dx = { -1, 1, 2, 2, 1, -1, -2, -2 };
     static int[] dy = { -2, -2, -1, 1, 2, 2, 1, -1 };
-    static int[][] graph;
+    static boolean[][] visited;
     static int I;
-    static int endX, endY;
 
     static class Node {
         int x, y, cnt;
@@ -33,41 +32,37 @@ public class P7562 {
         }
 
         System.out.print(sb);
-
     }
 
     static int getMinMove() throws IOException {
         StringTokenizer st;
 
         I = Integer.parseInt(br.readLine());
-        graph = new int[I][I];
+        visited = new boolean[I][I];
 
         st = new StringTokenizer(br.readLine());
         int x = Integer.parseInt(st.nextToken());
         int y = Integer.parseInt(st.nextToken());
 
         st = new StringTokenizer(br.readLine());
-        endX = Integer.parseInt(st.nextToken());
-        endY = Integer.parseInt(st.nextToken());
+        int endX = Integer.parseInt(st.nextToken());
+        int endY = Integer.parseInt(st.nextToken());
 
-        bfs(new Node(x, y, 0));
-
-        return graph[endY][endX];
+        return bfs(new Node(x, y, 0), endX, endY);
     }
 
-    static void bfs(Node start) {
+    static int bfs(Node start, int endX, int endY) {
         Queue<Node> queue = new LinkedList<>();
         queue.offer(start);
-
         while (!queue.isEmpty()) {
             Node node = queue.poll();
             int x = node.x;
             int y = node.y;
             int cnt = node.cnt;
+            visited[y][x] = true;
 
             if (x == endX && y == endY) {
-                graph[endY][endX] = cnt;
-                return;
+                return cnt;
             }
 
             int nx, ny;
@@ -79,11 +74,13 @@ public class P7562 {
                     continue;
                 }
 
-                if (graph[ny][nx] == 0) {
+                if (!visited[ny][nx]) {
                     queue.offer(new Node(nx, ny, cnt + 1));
-                    graph[ny][nx] = cnt + 1;
+                    visited[ny][nx] = true;
                 }
             }
         }
+
+        return -1;
     }
 }
