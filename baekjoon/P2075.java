@@ -14,7 +14,7 @@ public class P2075 {
             pq.offer(Integer.parseInt(s));
         }
 
-        for (int i = 1; i < N; i++) {
+        while (N-- > 1) {
             for (String s : br.readLine().split(" ")) {
                 int num = Integer.parseInt(s);
                 if (pq.peek() < num) {
