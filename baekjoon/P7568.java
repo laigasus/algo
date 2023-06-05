@@ -6,6 +6,18 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class P7568 {
+    static class Person {
+        int x;
+        int y;
+        int rank;
+
+        public Person(int x, int y) {
+            super();
+            this.x = x;
+            this.y = y;
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -13,7 +25,7 @@ public class P7568 {
         int rank;
         StringTokenizer st;
         List<Person> list = new ArrayList<>();
-        
+
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
@@ -32,17 +44,5 @@ public class P7568 {
             sb.append(rank + " ");
         }
         System.out.println(sb);
-    }
-}
-
-class Person {
-    int x;
-    int y;
-    int rank;
-
-    public Person(int x, int y) {
-        super();
-        this.x = x;
-        this.y = y;
     }
 }
