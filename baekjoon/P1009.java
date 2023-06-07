@@ -4,7 +4,7 @@ public class P1009 {
     public static void main(String[] args) throws IOException {
         StringBuilder sb = new StringBuilder();
         int T = readInt();
-        for (int j = 0; j < T; j++) {
+        while (T-- > 0) {
             int a = readInt();
             int b = readInt();
             int c = 0;
