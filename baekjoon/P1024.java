@@ -1,29 +1,20 @@
 import java.io.IOException;
-import java.util.stream.IntStream;
 
 public class P1024 {
     public static void main(String[] args) throws IOException {
         StringBuilder sb = new StringBuilder();
         int N = readInt(), L = readInt();
-        long[] dp = new long[(N / 2 + 1) + 1];
-        dp[1] = 0;
 
-        for (int i = 2; i < dp.length; i++) {
-            dp[i] = dp[i - 1] + (i - 1);
-        }
-
-        do {
-            for (int k = 0; k < dp.length - L; k++) {
-                if (dp[k + L] - dp[k] == N) {
-                    for (int a : IntStream.range(k, k + L).toArray()) {
-                        sb.append(a).append(' ');
-                    }
-                    System.out.println(sb);
-                    return;
+        for (int i = L; i <= 100; i++) {
+            if ((2 * N >= i * (i - 1)) && (2 * N - i * (i - 1)) % (2 * i) == 0) {
+                int a = (2 * N - i * (i - 1)) / (2 * i);
+                for (int j = 0; j < i; j++) {
+                    sb.append(a + j).append(' ');
                 }
+                System.out.println(sb);
+                return;
             }
-        } while (L++ <= 100);
-
+        }
         System.out.println(-1);
     }
 
