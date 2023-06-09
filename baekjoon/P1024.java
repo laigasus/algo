@@ -6,23 +6,23 @@ public class P1024 {
         StringBuilder sb = new StringBuilder();
         int N = readInt(), L = readInt();
         long[] dp = new long[(N / 2 + 1) + 1];
-        dp[1] = 1;
+        dp[1] = 0;
 
         for (int i = 2; i < dp.length; i++) {
-            dp[i] = dp[i - 1] + i;
+            dp[i] = dp[i - 1] + (i - 1);
         }
 
         do {
             for (int k = 0; k < dp.length - L; k++) {
-                if (dp[k + L - 1] - dp[k] == N) {
-                    for (int a : IntStream.range(k + 1, k + L + 1).toArray()) {
+                if (dp[k + L] - dp[k] == N) {
+                    for (int a : IntStream.range(k, k + L).toArray()) {
                         sb.append(a).append(' ');
                     }
                     System.out.println(sb);
                     return;
                 }
             }
-        } while (L++ <= dp.length);
+        } while (L++ <= 100);
 
         System.out.println(-1);
     }
