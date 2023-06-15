@@ -3,15 +3,15 @@ import java.util.StringTokenizer;
 public class S172928 {
     static class Solution {
         static int x, y;
-        static int mapW, mapH;
-        static String[] map;
+        static int parkW, parkH;
+        static String[] park;
 
         public static int[] solution(String[] park, String[] routes) {
             StringTokenizer st;
 
-            map = park;
-            mapW = park[0].length();
-            mapH = park.length;
+            Solution.park = park;
+            parkW = park[0].length();
+            parkH = park.length;
 
             loop: for (int i = 0; i < park.length; i++) {
                 for (int j = 0; j < park[i].length(); j++) {
@@ -53,7 +53,7 @@ public class S172928 {
                         break;
                 }
 
-                if (tmpX < 0 || tmpX >= mapW || tmpY < 0 || tmpY >= mapH || map[tmpY].charAt(tmpX) == 'X') {
+                if (tmpX < 0 || tmpX >= parkW || tmpY < 0 || tmpY >= parkH || park[tmpY].charAt(tmpX) == 'X') {
                     return;
                 }
             }
