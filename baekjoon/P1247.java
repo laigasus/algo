@@ -10,11 +10,11 @@ public class P1247 {
         int T = 3;
 
         while (T-- > 0) {
-            BigInteger rs = new BigInteger("0");
+            BigInteger rs = BigInteger.valueOf(0);
             int N = Integer.parseInt(br.readLine());
 
             while (N-- > 0) {
-                rs = rs.add(new BigInteger(br.readLine()));
+                rs = rs.add(BigInteger.valueOf(Long.parseLong(br.readLine())));
             }
 
             switch (rs.compareTo(BigInteger.ZERO)) {
