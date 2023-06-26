@@ -12,16 +12,16 @@ public class P9663F {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
 
-        int[][] graph = new int[N][N];
+        char[][] graph = new char[N][N];
 
         calc(0, graph);
         System.out.println(cnt);
     }
 
-    static void calc(int y, int[][] graph) {
+    static void calc(int y, char[][] graph) {
         if (y >= N) {
             cnt++;
-            // printGraph(y, graph);
+            printGraph(y, graph);
             return;
         }
 
@@ -30,7 +30,7 @@ public class P9663F {
                 continue;
             }
             if (graph[y][x] == 0) {
-                int[][] graphCp = new int[N][N];
+                char[][] graphCp = new char[N][N];
                 for (int idx = 0; idx < N; idx++) {
                     graphCp[idx] = graph[idx].clone();
                 }
@@ -40,12 +40,12 @@ public class P9663F {
                         int nx = x + dx[idx] * range;
                         int ny = y + dy[idx] * range;
                         if (isInside(nx, ny)) {
-                            graphCp[ny][nx] = -1;
+                            graphCp[ny][nx] = '.';
                         }
                     }
                 }
 
-                graphCp[y][x] = 5;
+                graphCp[y][x] = 'Q';
                 calc(y + 1, graphCp);
             }
         }
@@ -58,12 +58,12 @@ public class P9663F {
         return true;
     }
 
-    static void printGraph(int y, int[][] graph) {
+    static void printGraph(int y, char[][] graph) {
         StringBuilder sb = new StringBuilder();
         sb.append("Case:").append(cnt).append('\n');
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                sb.append(String.format("%3d", graph[i][j]));
+                sb.append(String.format("%3c", graph[i][j]));
             }
             sb.append('\n');
         }
