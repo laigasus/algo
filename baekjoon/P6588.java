@@ -20,6 +20,7 @@ public class P6588 {
             System.out.print(sb);
         } else {
             System.out.println("Goldbach's conjecture is wrong.");
+            sb.setLength(0);
         }
     }
 
