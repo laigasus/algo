@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 public class P1504 {
-    static class Node {
+    private static class Node {
         int v;
         int c;
 

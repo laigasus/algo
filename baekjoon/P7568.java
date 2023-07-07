@@ -6,12 +6,11 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class P7568 {
-    static class Person {
+    private static class Person {
         int x;
         int y;
-        int rank;
 
-        public Person(int x, int y) {
+        Person(int x, int y) {
             super();
             this.x = x;
             this.y = y;

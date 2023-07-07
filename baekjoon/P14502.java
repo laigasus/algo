@@ -10,10 +10,10 @@ public class P14502 {
     static int max = 0;
     static Queue<Node> queue;
 
-    static class Node {
+    private static class Node {
         int x, y;
 
-        public Node(int x, int y) {
+        Node(int x, int y) {
             this.x = x;
             this.y = y;
         }

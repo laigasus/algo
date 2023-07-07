@@ -12,10 +12,10 @@ public class P11657 {
     static final int INF = Integer.MAX_VALUE;
     static int N, M;
 
-    static class Node {
+    private static class Node {
         int s, e, w;
 
-        public Node(int s, int e, int w) {
+        Node(int s, int e, int w) {
             this.s = s;
             this.e = e;
             this.w = w;

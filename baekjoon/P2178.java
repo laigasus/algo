@@ -14,11 +14,11 @@ public class P2178 {
     static int[] dy = { 0, 0, -1, 1 };
     final static int directionPoint = 4;
 
-    static class Node {
+    private static class Node {
         int x;
         int y;
 
-        public Node(int x, int y) {
+        Node(int x, int y) {
             this.x = x;
             this.y = y;
         }

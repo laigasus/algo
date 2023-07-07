@@ -47,10 +47,10 @@ public class P7576 {
         System.out.println(totalDays - 1);
     }
 
-    static class Node {
+    private static class Node {
         int x, y;
 
-        public Node(int x, int y) {
+        Node(int x, int y) {
             this.x = x;
             this.y = y;
         }

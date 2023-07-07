@@ -24,10 +24,10 @@ public class P13549 {
         System.out.println(time);
     }
 
-    static class Node {
+    private static class Node {
         int v, w;
 
-        public Node(int v, int w) {
+        Node(int v, int w) {
             this.v = v;
             this.w = w;
         }

@@ -12,11 +12,11 @@ public class P1753 {
     static boolean[] visited;
     final static int INF = 200_000;
 
-    static class Node {
+    private static class Node {
         int v;
         int w;
 
-        public Node(int v, int w) {
+        Node(int v, int w) {
             this.v = v;
             this.w = w;
         }

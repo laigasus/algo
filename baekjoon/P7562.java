@@ -13,10 +13,10 @@ public class P7562 {
     static boolean[][] visited;
     static int I;
 
-    static class Node {
+    private static class Node {
         int x, y, cnt;
 
-        public Node(int x, int y, int cnt) {
+        Node(int x, int y, int cnt) {
             this.x = x;
             this.y = y;
             this.cnt = cnt;

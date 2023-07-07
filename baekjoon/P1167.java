@@ -13,10 +13,10 @@ public class P1167 {
     static int[] dist;
     static int V;
 
-    static class Node {
+    private static class Node {
         int v, len;
 
-        public Node(int v, int len) {
+        Node(int v, int len) {
             this.v = v;
             this.len = len;
         }
