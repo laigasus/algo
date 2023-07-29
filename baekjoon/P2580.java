@@ -9,7 +9,16 @@ public class P2580 {
     static final int BD_SIZE_S = 3;
     static final String SPACE = " ";
 
-    static int[][] sudoku = new int[BD_SIZE][BD_SIZE];
+    static int[] rowBits, colBits;
+    static int[][] boxBits;
+    static int[][] sudoku;
+
+    static {
+        rowBits = new int[BD_SIZE];
+        colBits = new int[BD_SIZE];
+        boxBits = new int[BD_SIZE_S][BD_SIZE_S];
+        sudoku = new int[BD_SIZE][BD_SIZE];
+    }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,14 +27,21 @@ public class P2580 {
             StringTokenizer st = new StringTokenizer(br.readLine());
             for (int j = 0; j < BD_SIZE; j++) {
                 sudoku[i][j] = Integer.parseInt(st.nextToken());
+                if (sudoku[i][j] == 0) {
+                    continue;
+                }
+
+                int v = sudoku[i][j];
+                rowBits[i] |= 1 << v;
+                colBits[j] |= 1 << v;
+                boxBits[i / BD_SIZE_S][j / BD_SIZE_S] |= 1 << v;
             }
         }
 
         calc(0, 0);
     }
 
-    public static void calc(int row, int col) {
-
+    static void calc(int row, int col) {
         if (col == BD_SIZE) {
             calc(row + 1, 0);
             return;
@@ -48,42 +64,47 @@ public class P2580 {
 
         // 미 기입된 값 확인
         if (sudoku[row][col] == 0) {
-            for (int i = 1; i <= BD_SIZE; i++) {
-                if (check(row, col, i)) {
-                    sudoku[row][col] = i;
+            for (int n = 1; n <= BD_SIZE; n++) {
+                if (isValid(row, col, n)) {
+                    place(row, col, n);
                     calc(row, col + 1);
+                    displace(row, col, n);
                 }
             }
-            sudoku[row][col] = 0;
             return;
         }
 
         calc(row, col + 1);
     }
 
-    static boolean check(int row, int col, int v) {
+    private static void place(int row, int col, int n) {
+        sudoku[row][col] = n;
+        rowBits[row] |= 1 << n;
+        colBits[col] |= 1 << n;
+        boxBits[row / BD_SIZE_S][col / BD_SIZE_S] |= 1 << n;
+    }
+
+    private static void displace(int row, int col, int n) {
+        sudoku[row][col] = 0;
+        rowBits[row] &= ~(1 << n);
+        colBits[col] &= ~(1 << n);
+        boxBits[row / BD_SIZE_S][col / BD_SIZE_S] &= ~(1 << n);
+    }
+
+    private static boolean isValid(int row, int col, int v) {
         // 수평 검사
-        for (int idx = 0; idx < BD_SIZE; idx++) {
-            if (sudoku[row][idx] == v) {
-                return false;
-            }
+        if ((rowBits[row] & (1 << v)) != 0) {
+            return false;
         }
 
         // 수직 검사
-        for (int idx = 0; idx < BD_SIZE; idx++) {
-            if (sudoku[idx][col] == v) {
-                return false;
-            }
+        if ((colBits[col] & (1 << v)) != 0) {
+            return false;
         }
 
         // 박스 검사
-        int pfRow = (row / BD_SIZE_S) * BD_SIZE_S, pfCol = (col / BD_SIZE_S) * BD_SIZE_S;
-        for (int i = pfRow; i < pfRow + BD_SIZE_S; i++) {
-            for (int j = pfCol; j < pfCol + BD_SIZE_S; j++) {
-                if (sudoku[i][j] == v) {
-                    return false;
-                }
-            }
+        if ((boxBits[row / BD_SIZE_S][col / BD_SIZE_S] & (1 << v)) != 0) {
+            return false;
         }
 
         return true;
