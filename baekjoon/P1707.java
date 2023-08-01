@@ -43,7 +43,7 @@ public class P1707 {
         chk = new Boolean[V + 1];// 색이 칠해진 것(true, false), 칠해지지 않는 것(null) 분류
 
         for (int start = 1; start <= V; start++) {
-            if (!isPossible(start, chk)) {
+            if (!isPossible(start)) {
                 rs = false;
                 break;
             }
@@ -52,7 +52,7 @@ public class P1707 {
         sb.append(rs ? "YES" : "NO").append('\n');
     }
 
-    private static boolean isPossible(int start, Boolean[] chk) {
+    private static boolean isPossible(int start) {
         if (chk[start] != null) {
             return true;
         }
