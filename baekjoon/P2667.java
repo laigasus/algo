@@ -8,11 +8,9 @@ import java.util.List;
 public class P2667 {
     static int[][] graph;
     static boolean[][] visited;
-    static int[] dx = { -1, 1, 0, 0 };
-    static int[] dy = { 0, 0, -1, 1 };
+    static int N, cnt = 0;
+    static int[] dx = { -1, 1, 0, 0 }, dy = { 0, 0, -1, 1 };
     static List<Integer> homes = new ArrayList<>();
-    static int cnt = 0;
-    static int N;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,14 +29,12 @@ public class P2667 {
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (graph[i][j] == 1 && !visited[i][j]) {
-                    dfs(i, j);
-                    homes.add(cnt);
-                    cnt = 0;
-                } else {
-                    visited[i][j] = true;
+                if (graph[i][j] == 0 || visited[i][j]) {
+                    continue;
                 }
-
+                dfs(i, j);
+                homes.add(cnt);
+                cnt = 0;
             }
         }
 
@@ -55,7 +51,7 @@ public class P2667 {
         visited[y][x] = true;
         int nx, ny;
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < dx.length; i++) {
             nx = x + dx[i];
             ny = y + dy[i];
             if (nx < 0 || nx >= N || ny < 0 || ny >= N) {
