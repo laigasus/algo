@@ -1,52 +1,52 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.StringTokenizer;
+import java.util.StringJoiner;
 
 public class P1260 {
     static List<List<Integer>> graph;
     static boolean[] visited;
+    static StringJoiner sj;
+    static int N, M, V;
+
     static Queue<Integer> q = new LinkedList<>();
     static StringBuilder sb = new StringBuilder();
-    static BufferedReader br;
-    static StringTokenizer st;
-    static int N, M, V;
 
     public static void main(String[] args) throws IOException {
         init();
-
-        visited = new boolean[N + 1];
         dfs(V);
-        sb.append("\n");
-        visited = new boolean[N + 1];
+
+        sb.append('\n');
+
+        init();
         bfs(V);
 
         System.out.println(sb);
     }
 
     static void init() throws IOException {
-        br = new BufferedReader(new InputStreamReader(System.in));
-        st = new StringTokenizer(br.readLine());
+        if (graph != null) {
+            visited = new boolean[N + 1];
+            return;
+        }
 
-        N = Integer.parseInt(st.nextToken());
-        M = Integer.parseInt(st.nextToken());
-        V = Integer.parseInt(st.nextToken());
+        N = readInt();
+        M = readInt();
+        V = readInt();
 
+        visited = new boolean[N + 1];
         graph = new ArrayList<>();
-        for (int i = 0; i < N + 1; i++) {
+
+        for (int i = 0; i <= N; i++) {
             graph.add(new ArrayList<>());
         }
 
-        for (int i = 0; i < M; i++) {
-            st = new StringTokenizer(br.readLine());
-            int a = Integer.parseInt(st.nextToken());
-            int b = Integer.parseInt(st.nextToken());
-
+        while (M-- > 0) {
+            int a = readInt();
+            int b = readInt();
             graph.get(a).add(b);
             graph.get(b).add(a);
         }
@@ -54,30 +54,49 @@ public class P1260 {
         graph.forEach(list -> Collections.sort(list));
     }
 
-    static void dfs(int V) {
-        visited[V] = true;
-        sb.append(V + " ");
+    static void dfs(int now) {
+        visited[now] = true;
+        sb.append(now).append(' ');
 
-        for (int node : graph.get(V)) {
-            if (!visited[node]) {
-                dfs(node);
+        for (int next : graph.get(now)) {
+            if (!visited[next]) {
+                dfs(next);
             }
         }
     }
 
-    static void bfs(int V) {
-        q.offer(V);
-        visited[V] = true;
+    static void bfs(int start) {
+        q.offer(start);
+        visited[start] = true;
         while (!q.isEmpty()) {
-            int x = q.poll();
-            sb.append(x + " ");
+            int now = q.poll();
+            sb.append(now).append(' ');
 
-            for (int node : graph.get(x)) {
-                if (!visited[node]) {
-                    q.offer(node);
-                    visited[node] = true;
+            for (int next : graph.get(now)) {
+                if (visited[next]) {
+                    continue;
                 }
+                q.offer(next);
+                visited[next] = true;
             }
         }
+    }
+
+    private static int readInt() throws IOException {
+        int rs = 0;
+        boolean isNegative = false;
+        int c = System.in.read();
+        while (c <= ' ') {
+            c = System.in.read();
+        }
+        if (c == '-') {
+            isNegative = true;
+            c = System.in.read();
+        }
+        while (c >= '0' && c <= '9') {
+            rs = rs * 10 + c - '0';
+            c = System.in.read();
+        }
+        return isNegative ? -rs : rs;
     }
 }
