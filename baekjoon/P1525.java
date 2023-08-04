@@ -6,21 +6,22 @@ import java.util.Queue;
 
 public class P1525 {
     static final String GRAPH_END = "123456780";
-    static final char ZERO = '0', TMP = 'T';
+    static final char ZERO = '0';
     static final int BD_SIZE = 3;
 
     static Map<String, Integer> map = new HashMap<>();
 
     public static void main(String[] args) throws IOException {
-        String graph = "";
+        StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < BD_SIZE; i++) {
             for (int j = 0; j < BD_SIZE; j++) {
-                graph += readInt();
+                sb.append(readInt());
             }
         }
 
-        map.put(graph, 0);
-        System.out.println(bfs(graph));
+        map.put(sb.toString(), 0);
+        System.out.println(bfs(sb.toString()));
     }
 
     static int bfs(String start) {
@@ -49,12 +50,9 @@ public class P1525 {
                 }
 
                 int idx = ny * BD_SIZE + nx;
-                char dirNum = now.charAt(idx);
+                char swapNum = now.charAt(idx);
 
-                // swap
-                String next = now.replace(dirNum, TMP)
-                        .replace(ZERO, dirNum)
-                        .replace(TMP, ZERO);
+                String next = swap(now, idx, zeroIdx, swapNum);
 
                 if (map.containsKey(next)) {
                     continue;
@@ -65,6 +63,13 @@ public class P1525 {
             }
         }
         return -1;
+    }
+
+    private static String swap(String now, int idx, int zeroIdx, char swapNum) {
+        StringBuilder tmp = new StringBuilder(now);
+        tmp.setCharAt(idx, ZERO);
+        tmp.setCharAt(zeroIdx, swapNum);
+        return tmp.toString();
     }
 
     private static int readInt() throws IOException {
