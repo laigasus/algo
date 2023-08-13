@@ -1,11 +1,7 @@
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class P9095 {
     final static int[] MAGIC_NUMS = { 1, 2, 3 };
-
-    static List<Integer> list = new ArrayList<>();
     static int cases, N;
 
     public static void main(String[] args) throws IOException {
@@ -13,18 +9,13 @@ public class P9095 {
         int T = readInt();
 
         while (T-- > 0) {
-            init();
+            cases = 0;
             N = readInt();
             calc(0);
             sb.append(cases).append('\n');
         }
 
         System.out.print(sb);
-    }
-
-    static void init() {
-        list.clear();
-        cases = 0;
     }
 
     static void calc(int sum) {
@@ -38,9 +29,7 @@ public class P9095 {
         }
 
         for (int num : MAGIC_NUMS) {
-            list.add(num);
             calc(sum + num);
-            list.remove(list.size() - 1);
         }
     }
 
