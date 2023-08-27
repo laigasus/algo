@@ -13,10 +13,6 @@ public class P19637 {
             this.power = power;
         }
 
-        public String getName() {
-            return name;
-        }
-
         public int getPower() {
             return power;
         }
@@ -54,15 +50,15 @@ public class P19637 {
         System.out.print(sb);
     }
 
-    public static int binarySearch(int power) {
-        int low = 0;
-        int high = N - 1;
-        while (low <= high) {
+    static int binarySearch(int power) {
+        int low = 0, high = N - 1;
+
+        while (low < high) {
             int mid = low + (high - low) / 2;
             if (titles[mid].power < power) {
                 low = mid + 1;
-            } else if (titles[mid].power >= power) {
-                high = mid - 1;
+            } else {
+                high = mid;
             }
         }
         return low;
