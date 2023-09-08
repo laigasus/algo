@@ -1,12 +1,6 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class P1012 {
-
-    static StringTokenizer st;
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static int[][] graph;
     static boolean[][] visited;
     static int[] dx = { 0, 1, 0, -1 };
@@ -17,7 +11,7 @@ public class P1012 {
     public static void main(String[] args) throws IOException {
         StringBuilder sb = new StringBuilder();
 
-        int T = Integer.parseInt(br.readLine());
+        int T = readInt();
 
         while (T-- > 0) {
             sb.append(getMinWorm()).append('\n');
@@ -28,20 +22,18 @@ public class P1012 {
 
     static int getMinWorm() throws IOException {
         int cnt = 0;
-        st = new StringTokenizer(br.readLine());
         int x = 0, y = 0;
 
-        M = Integer.parseInt(st.nextToken());
-        N = Integer.parseInt(st.nextToken());
-        K = Integer.parseInt(st.nextToken());
+        M = readInt();
+        N = readInt();
+        K = readInt();
 
         graph = new int[N][M];
         visited = new boolean[N][M];
 
         while (K-- > 0) {
-            st = new StringTokenizer(br.readLine());
-            x = Integer.parseInt(st.nextToken());
-            y = Integer.parseInt(st.nextToken());
+            x = readInt();
+            y = readInt();
 
             graph[y][x] = 1;
         }
@@ -71,9 +63,31 @@ public class P1012 {
                 continue;
             }
 
-            if (!visited[ny][nx] && graph[ny][nx] == 1) {
+            if (visited[ny][nx]) {
+                continue;
+            }
+
+            if (graph[ny][nx] == 1) {
                 dfs(ny, nx);
             }
         }
+    }
+
+    private static int readInt() throws IOException {
+        int rs = 0;
+        boolean isNegative = false;
+        int c = System.in.read();
+        while (c <= ' ') {
+            c = System.in.read();
+        }
+        if (c == '-') {
+            isNegative = true;
+            c = System.in.read();
+        }
+        while (c >= '0' && c <= '9') {
+            rs = rs * 10 + c - '0';
+            c = System.in.read();
+        }
+        return isNegative ? -rs : rs;
     }
 }
