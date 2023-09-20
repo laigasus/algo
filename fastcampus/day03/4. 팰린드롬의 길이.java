@@ -1,6 +1,5 @@
 package day03;
 
-import java.util.Collections;
 import java.util.HashMap;
 
 class Solution4 {
@@ -11,9 +10,9 @@ class Solution4 {
 			hashMap.put(c, hashMap.getOrDefault(c, 0) + 1);
 		}
 
-		StringBuilder sb= new StringBuilder();
+		StringBuilder sb = new StringBuilder();
 		sb.isEmpty();
-		
+
 		int odd = 0;
 		for (char c : hashMap.keySet()) {
 			int num = hashMap.get(c);
