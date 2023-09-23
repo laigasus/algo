@@ -2,26 +2,25 @@ package day04;
 
 //5. 랜선 자르기 7분
 class Solution5 {
+	private final int MAX_CABLE_LEN = Integer.MAX_VALUE;
 
-	private final int MAX_CABLE_LEN = 1_000_000;
+	public long solution(int[] cables, int N) {
+		long answer = 0;
+		long left = 1, right = MAX_CABLE_LEN;
 
-	public int solution(int[] cables, int N) {
-		int answer = 0;
+		while (left <= right) {
+			long mid = left + (right - left) / 2;
 
-		int left = 1, right = MAX_CABLE_LEN;
-
-		while (left < right) {
 			int cnt = 0;
-			int middle = left + (right - left) / 2;
 			for (int cable : cables) {
-				cnt += cable / middle;
+				cnt += cable / mid;
 			}
 
 			if (cnt < N) {
-				right = middle;
+				right = mid - 1;
 			} else {
-				answer = Math.max(answer, middle);
-				left = middle + 1;
+				answer = mid;
+				left = mid + 1;
 			}
 		}
 

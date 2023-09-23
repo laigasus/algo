@@ -1,42 +1,54 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
-import java.util.stream.IntStream;
 
 public class P1654 {
-
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int K = readInt();
+        int N = readInt();
 
-        StringTokenizer st = new StringTokenizer(br.readLine());
-
-        int K = Integer.parseInt(st.nextToken());
-        int N = Integer.parseInt(st.nextToken());
-
-        int[] arr = new int[K];
-
-        long max = 0;
+        int[] cables = new int[K];
+        long left = 1, right = 0;
 
         for (int i = 0; i < K; i++) {
-            arr[i] = Integer.parseInt(br.readLine());
-            max = Math.max(max, arr[i]);
+            int value = readInt();
+            cables[i] = value;
+            right = Math.max(right, value);
         }
 
-        max++;
+        long rs = 0;
+        while (left <= right) {
+            long mid = left + (right - left) / 2;
 
-        long min = 0, mid = 0;
+            int cnt = 0;
+            for (int cable : cables) {
+                cnt += cable / mid;
+            }
 
-        while (min < max) {
-            mid = (max + min) / 2;
-            final long v = mid;
-            
-            if (IntStream.of(arr).mapToLong(i -> i / v).sum() < N) {
-                max = mid;
+            if (cnt < N) {
+                right = mid - 1;
             } else {
-                min = mid + 1;
+                rs = mid;
+                left = mid + 1;
             }
         }
-        System.out.println(min - 1);
+
+        System.out.println(rs);
+    }
+
+    private static int readInt() throws IOException {
+        int rs = 0;
+        boolean isNegative = false;
+        int c = System.in.read();
+        while (c <= ' ') {
+            c = System.in.read();
+        }
+        if (c == '-') {
+            isNegative = true;
+            c = System.in.read();
+        }
+        while (c >= '0' && c <= '9') {
+            rs = rs * 10 + c - '0';
+            c = System.in.read();
+        }
+        return isNegative ? -rs : rs;
     }
 }
