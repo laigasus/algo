@@ -1,71 +1,82 @@
-import java.util.StringTokenizer;
+import java.util.Arrays;
+import java.util.Map;
 
 public class S172928 {
     static class Solution {
-        static int x, y;
-        static int parkW, parkH;
-        static String[] park;
+        static class Point {
+            int y, x;
 
-        public static int[] solution(String[] park, String[] routes) {
-            StringTokenizer st;
+            public Point(int y, int x) {
+                this.y = y;
+                this.x = x;
+            }
+        }
 
-            Solution.park = park;
-            parkW = park[0].length();
-            parkH = park.length;
+        public static int[] solution(final String[] park, final String[] routes) {
+            final int parkWidth = park[0].length();
+            final int parkHeight = park.length;
 
-            loop: for (int i = 0; i < park.length; i++) {
-                for (int j = 0; j < park[i].length(); j++) {
-                    if (park[i].charAt(j) == 'S') {
-                        x = j;
-                        y = i;
-                        break loop;
+            int[][] board = new int[parkHeight][parkWidth];
+
+            Point now = new Point(0, 0);
+            for (int row = 0; row < parkHeight; row++) {
+                for (int col = 0; col < parkWidth; col++) {
+                    switch (park[row].charAt(col)) {
+                        case 'S' -> {
+                            now.y = row;
+                            now.x = col;
+                        }
+                        case 'X' -> {
+                            board[row][col] = 1;
+                        }
                     }
                 }
             }
 
-            for (int i = 0; i < routes.length; i++) {
-                st = new StringTokenizer(routes[i], " ");
-                char dir = st.nextToken().charAt(0);
-                int repeat = Integer.parseInt(st.nextToken());
+            Map<String, int[]> move = Map.of(
+                    "E", new int[] { 1, 0 },
+                    "W", new int[] { -1, 0 },
+                    "N", new int[] { 0, -1 },
+                    "S", new int[] { 0, 1 });
 
-                move(dir, repeat);
+            loop: for (String route : routes) {
+                String[] cmd = route.split(" ");
+                int[] dir = move.get(cmd[0]);
+                int repeat = Integer.parseInt(cmd[1]);
+
+                int ny = now.y;
+                int nx = now.x;
+                while (repeat-- > 0) {
+                    ny += dir[1];
+                    nx += dir[0];
+
+                    if (nx < 0 || ny < 0 || nx >= parkWidth || ny >= parkHeight) {
+                        continue loop;
+                    }
+
+                    if (board[ny][nx] == 1) {
+                        continue loop;
+                    }
+                }
+                now.y = ny;
+                now.x = nx;
             }
 
-            int[] answer = { y, x };
-            return answer;
-        }
-
-        static void move(char dir, int repeat) {
-            int tmpX = x, tmpY = y;
-            while (repeat-- > 0) {
-                switch (dir) {
-                    case 'N':
-                        tmpY -= 1;
-                        break;
-                    case 'E':
-                        tmpX += 1;
-                        break;
-                    case 'S':
-                        tmpY += 1;
-                        break;
-                    case 'W':
-                        tmpX -= 1;
-                        break;
-                }
-
-                if (tmpX < 0 || tmpX >= parkW || tmpY < 0 || tmpY >= parkH || park[tmpY].charAt(tmpX) == 'X') {
-                    return;
-                }
-            }
-            x = tmpX;
-            y = tmpY;
+            return new int[] { now.y, now.x };
         }
     }
 
     public static void main(String[] args) {
-        String[] park = { "OSO", "OOO", "OXO", "OOO" };
-        String[] routes = { "E 2", "S 3", "W 1" };
-        int[] answer = Solution.solution(park, routes);
-        System.out.printf("[%d,%d]\n", answer[0], answer[1]);
+        System.out.println(Arrays.toString(Solution.solution(
+                new String[] { "SOO", "OOO", "OOO" },
+                new String[] { "E 2", "S 2", "W 1" })));
+
+        System.out.println(Arrays.toString(Solution.solution(
+                new String[] { "SOO", "OXX", "OOO" },
+                new String[] { "E 2", "S 2", "W 1" })));
+
+        System.out.println(Arrays.toString(Solution.solution(
+                new String[] { "OSO", "OOO", "OXO", "OOO" },
+                new String[] { "E 2", "S 3", "W 1" })));
     }
 }
