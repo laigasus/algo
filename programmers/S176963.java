@@ -1,33 +1,58 @@
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 
 class S176963 {
-    public static void main(String[] args) {
+    class Solution {
+        public int[] solution(String[] name, int[] yearning, String[][] photo) {
+            HashMap<String, Integer> nameMap = new HashMap<>();
 
-        String[] name = { "may", "kein", "kain", "radi" };
-        int[] yearning = { 5, 10, 1, 3 };
-        String[][] photo = {
-                { "may", "kein", "kain", "radi" },
-                { "may", "kein", "brin", "deny" },
-                { "kon", "kain", "may", "coni" }
-        };
-        int[] answer = new int[photo.length];
-
-        Map<String, Integer> map = new HashMap<>();
-        for (int i = 0; i < yearning.length; i++) {
-            map.put(name[i], yearning[i]);
-        }
-
-        for (int i = 0; i < photo.length; i++) {
-            int sum = 0;
-            for (String member : photo[i]) {
-                sum += map.getOrDefault(member, 0);
+            for (int i = 0; i < yearning.length; i++) {
+                nameMap.put(name[i], yearning[i]);
             }
-            answer[i] = sum;
-        }
 
-        for (int i = 0; i < answer.length; i++) {
-            System.out.println(answer[i]);
+            int[] answer = new int[photo.length];
+
+            for (int i = 0; i < photo.length; i++) {
+                int sum = 0;
+
+                for (String pic : photo[i]) {
+                    sum += nameMap.getOrDefault(pic, 0);
+                }
+                answer[i] = sum;
+            }
+
+            return answer;
         }
+    }
+
+    public static void main(String[] args) {
+        S176963 s176963 = new S176963();
+        Solution solution = s176963.new Solution();
+        System.out.println(Arrays.toString(solution.solution(
+                new String[] { "may", "kein", "kain", "radi" },
+                new int[] { 5, 10, 1, 3 },
+                new String[][] {
+                        { "may", "kein", "kain", "radi" },
+                        { "may", "kein", "brin", "deny" },
+                        { "kon", "kain", "may", "coni" }
+                })));
+
+        System.out.println(Arrays.toString(solution.solution(
+                new String[] { "kali", "mari", "don" },
+                new int[] { 11, 1, 55 },
+                new String[][] {
+                        { "kali", "mari", "don" },
+                        { "pony", "tom", "teddy" },
+                        { "con", "mona", "don" }
+                })));
+
+        System.out.println(Arrays.toString(solution.solution(
+                new String[] { "may", "kein", "kain", "radi" },
+                new int[] { 5, 10, 1, 3 },
+                new String[][] {
+                        { "may" },
+                        { "kein", "deny", "may" },
+                        { "kon", "coni" }
+                })));
     }
 }
