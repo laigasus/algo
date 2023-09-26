@@ -1,31 +1,43 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.StringTokenizer;
 
 public class P2437 {
-	static int N;
-	static int[] arr;
-
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		N = Integer.parseInt(br.readLine());
-		arr = new int[N];
-		StringTokenizer st = new StringTokenizer(br.readLine());
+		int N = readInt();
+		int[] weights = new int[N];
 
 		for (int i = 0; i < N; i++) {
-			arr[i] = Integer.parseInt(st.nextToken());
+			weights[i] = readInt();
 		}
 
-		Arrays.sort(arr);
+		Arrays.sort(weights);
+
 		int sum = 1;
-		for (int i = 0; i < arr.length; i++) {
-			if (sum < arr[i]) {
+		for (int weight : weights) {
+			if (sum < weight) {
 				break;
 			}
-			sum += arr[i];
+			sum += weight;
 		}
+
 		System.out.println(sum);
+	}
+
+	private static int readInt() throws IOException {
+		int rs = 0;
+		boolean isNegative = false;
+		int c = System.in.read();
+		while (c <= ' ') {
+			c = System.in.read();
+		}
+		if (c == '-') {
+			isNegative = true;
+			c = System.in.read();
+		}
+		while (c >= '0' && c <= '9') {
+			rs = rs * 10 + c - '0';
+			c = System.in.read();
+		}
+		return isNegative ? -rs : rs;
 	}
 }
