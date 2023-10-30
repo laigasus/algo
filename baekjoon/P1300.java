@@ -1,17 +1,15 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class P1300 {
 
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int N = Integer.parseInt(br.readLine());
-		int K = Integer.parseInt(br.readLine());
+		int N = readInt();
+		int K = readInt();
 
 		int left = 1;
 		int right = K;
 		int ans = 0;
+
 		while (left <= right) {
 			int mid = (left + right) / 2;
 			long cnt = 0;
@@ -26,5 +24,23 @@ public class P1300 {
 			}
 		}
 		System.out.println(ans);
+	}
+
+	private static int readInt() throws IOException {
+		int rs = 0;
+		boolean isNegative = false;
+		int c = System.in.read();
+		while (c <= ' ') {
+			c = System.in.read();
+		}
+		if (c == '-') {
+			isNegative = true;
+			c = System.in.read();
+		}
+		while (c >= '0' && c <= '9') {
+			rs = rs * 10 + c - '0';
+			c = System.in.read();
+		}
+		return isNegative ? -rs : rs;
 	}
 }
