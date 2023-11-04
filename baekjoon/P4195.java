@@ -1,18 +1,21 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringTokenizer;
 import java.util.stream.IntStream;
 
 public class P4195 {
     static final int MAX = 100_000 * 2;
-    static int[] parent;
-    static int[] friends;
+
+    static int[] parent, friends;
     static Map<String, Integer> map;
 
     public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int T = readInt();
-
+        int T = Integer.parseInt(br.readLine());
         StringBuilder sb = new StringBuilder();
 
         while (T-- > 0) {
@@ -20,18 +23,17 @@ public class P4195 {
             parent = IntStream.rangeClosed(0, MAX).toArray();
             friends = IntStream.generate(() -> 1).limit(MAX + 1).toArray();
 
+            int N = Integer.parseInt(br.readLine());
+
             int num = 1;
-            int F = readInt();
-            while (F-- > 0) {
-                String f1 = read(), f2 = read();
+            while (N-- > 0) {
+                StringTokenizer st = new StringTokenizer(br.readLine());
 
-                if (!map.containsKey(f1)) {
-                    map.put(f1, num++);
-                }
+                String f1 = st.nextToken();
+                String f2 = st.nextToken();
 
-                if (!map.containsKey(f2)) {
-                    map.put(f2, num++);
-                }
+                num = checkContainsMap(num, f1);
+                num = checkContainsMap(num, f2);
 
                 sb.append(union(map.get(f1), map.get(f2))).append('\n');
             }
@@ -39,6 +41,14 @@ public class P4195 {
         }
 
         System.out.print(sb);
+
+    }
+
+    private static int checkContainsMap(int num, String f) {
+        if (!map.containsKey(f)) {
+            map.put(f, num++);
+        }
+        return num;
     }
 
     private static int union(int a, int b) {
@@ -57,38 +67,8 @@ public class P4195 {
         if (parent[x] == x) {
             return x;
         }
+
         return parent[x] = find(parent[x]);
-    }
-
-    private static int readInt() throws IOException {
-        int rs = 0;
-        boolean isNegative = false;
-        int c = System.in.read();
-        while (c <= ' ') {
-            c = System.in.read();
-        }
-        if (c == '-') {
-            isNegative = true;
-            c = System.in.read();
-        }
-        while (c >= '0' && c <= '9') {
-            rs = rs * 10 + c - '0';
-            c = System.in.read();
-        }
-        return isNegative ? -rs : rs;
-    }
-
-    private static String read() throws IOException {
-        StringBuilder sb = new StringBuilder();
-        int c = System.in.read();
-        while (c <= ' ') {
-            c = System.in.read();
-        }
-        while (c > ' ') {
-            sb.append((char) c);
-            c = System.in.read();
-        }
-        return sb.toString();
     }
 
 }
