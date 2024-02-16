@@ -7,7 +7,8 @@ public class P11720 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Integer.parseInt(br.readLine());
-        System.out.println(Arrays.stream(br.readLine().split("")).mapToInt(i -> Integer.parseInt(i)).sum());
+        int sum = Arrays.stream(br.readLine().split("")).mapToInt(Integer::parseInt).sum();
+        System.out.println(sum);
         br.close();
     }
 }
