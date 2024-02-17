@@ -5,24 +5,24 @@ import java.io.InputStreamReader;
 public class P2018 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
 
-        int left = 1, right = 1, sum = 1;
-        int cnt = 0;
-        while (left <= right && right <= N) {
-            switch (Integer.signum(sum - N)) {
+        final int N = Integer.parseInt(br.readLine());
+        final int START_NUM = 1;
+
+        int left = START_NUM, right = START_NUM, sum = START_NUM;
+        int result = 0;
+        while (left <= N) {
+            switch (Integer.compare(sum, N)) {
                 case -1:
-                    right++;
-                    sum += right;
+                    sum += ++right;
                     break;
                 case 0:
-                    cnt++;
+                    result++;
                 case 1:
-                    sum -= left;
-                    left++;
+                    sum -= left++;
             }
         }
 
-        System.out.println(cnt);
+        System.out.println(result);
     }
 }

@@ -1,39 +1,54 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.StringTokenizer;
 
 public class P1940 {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
-        int M = Integer.parseInt(br.readLine());
+        final int N = readInt();
 
-        int[] arr = new int[N];
+        int[] materials = new int[N];
 
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        final int M = readInt();
+
         for (int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+            materials[i] = readInt();
         }
 
-        Arrays.sort(arr);
+        Arrays.sort(materials);
 
-        int cnt = 0;
-        int left = 0, right = arr.length - 1;
+        int first = 0, second = N - 1;
+        int result = 0;
 
-        while (left < right) {
-            switch (Integer.signum(arr[left] + arr[right] - M)) {
-                case 1:
-                    right--;
+        while (first < second) {
+            int sum = materials[first] + materials[second];
+            switch (Integer.compare(sum, M)) {
+                case -1:
+                    first++;
                     break;
                 case 0:
-                    cnt++;
-                case -1:
-                    left++;
+                    result++;
+                case 1:
+                    second--;
             }
         }
 
-        System.out.println(cnt);
+        System.out.println(result);
+    }
+
+    private static int readInt() throws IOException {
+        int rs = 0;
+        boolean isNegative = false;
+        int c = System.in.read();
+        while (c <= ' ') {
+            c = System.in.read();
+        }
+        if (c == '-') {
+            isNegative = true;
+            c = System.in.read();
+        }
+        while (c >= '0' && c <= '9') {
+            rs = rs * 10 + c - '0';
+            c = System.in.read();
+        }
+        return isNegative ? -rs : rs;
     }
 }
