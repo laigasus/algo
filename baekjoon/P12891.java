@@ -1,57 +1,57 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 public class P12891 {
-    static final int ALPHABETS = 26;
-    static final char[] DNA = { 'A', 'C', 'G', 'T' };
-
-    static HashMap<Character, Integer> requireDNA;
-    static String str;
-    static int cnt;
-
-    static {
-        requireDNA = new HashMap<>(DNA.length);
-        cnt = 0;
-    }
-
     public static void main(String[] args) throws IOException {
+        final char[] dna = { 'A', 'C', 'G', 'T' };
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int S = Integer.parseInt(st.nextToken());
-        int P = Integer.parseInt(st.nextToken());
+        final int S = Integer.parseInt(st.nextToken());
+        final int P = Integer.parseInt(st.nextToken());
 
-        str = br.readLine();
+        String str = br.readLine();
+
         st = new StringTokenizer(br.readLine());
 
-        for (char c : DNA) {
-            requireDNA.put(c, Integer.parseInt(st.nextToken()));
+        Map<Character, Integer> require = new LinkedHashMap<>();
+        Map<Character, Integer> current = new LinkedHashMap<>();
+
+        for (char key : dna) {
+            require.put(key, Integer.parseInt(st.nextToken()));
+            current.put(key, 0);
         }
 
-        int[] alphabets = new int[ALPHABETS];
         for (int i = 0; i < P; i++) {
-            alphabets[str.charAt(i) - 'A']++;
-        }
-        cntValid(alphabets);
-
-        for (int i = 1; i <= S - P; i++) {
-            alphabets[str.charAt(i - 1) - 'A']--;
-            alphabets[str.charAt(i + P - 1) - 'A']++;
-            cntValid(alphabets);
+            char c = str.charAt(i);
+            current.replace(c, current.get(c) + 1);
         }
 
-        System.out.println(cnt);
+        int result = checkValid(dna, current, require);
+
+        for (int i = P; i < S; i++) {
+            current.replace(str.charAt(i - P), current.get(str.charAt(i - P)) - 1);
+            current.replace(str.charAt(i), current.get(str.charAt(i)) + 1);
+
+            result += checkValid(dna, current, require);
+        }
+
+        System.out.println(result);
+
     }
 
-    static void cntValid(int[] alphabets) {
-        for (char c : DNA) {
-            if (alphabets[c - 'A'] < requireDNA.get(c)) {
-                return;
+    private static int checkValid(final char[] dna, Map<Character, Integer> current, Map<Character, Integer> require) {
+        for (var key : dna) {
+            if (current.get(key) < require.get(key)) {
+                return 0;
             }
         }
-        cnt++;
+        return 1;
     }
 }
