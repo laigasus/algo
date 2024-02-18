@@ -1,26 +1,23 @@
 import java.io.IOException;
+import java.util.Arrays;
 
-public class P11659 {
+public class P31246 {
     public static void main(String[] args) throws IOException {
-        int N = readInt(), M = readInt();
+        final int N = readInt();
+        final int K = readInt();
 
-        int[] prefixSum = new int[N + 1];
+        int[] ad = new int[N];
 
-        for (int i = 1; i <= N; i++) {
-            int now = readInt();
-            prefixSum[i] = prefixSum[i - 1] + now;
+        for (int i = 0; i < N; i++) {
+            int A = readInt();
+            int B = readInt();
+
+            ad[i] = Math.min(A - B, 0);
         }
 
-        StringBuilder sb = new StringBuilder();
-        while (M-- > 0) {
-            int start = readInt() - 1;
-            int end = readInt();
+        Arrays.sort(ad);
 
-            int result = prefixSum[end] - prefixSum[start];
-            sb.append(result).append('\n');
-        }
-
-        System.out.print(sb);
+        System.out.println(Math.abs(ad[N - K]));
     }
 
     private static int readInt() throws IOException {
