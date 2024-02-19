@@ -1,33 +1,52 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.Stack;
 
 public class P17298 {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        int N = Integer.parseInt(br.readLine());
-
-        int[] arr = new int[N];
-
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        final int N = readInt();
+        int[] A = new int[N];
 
         for (int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+            A[i] = readInt();
         }
 
+        Stack<Integer> stack = new Stack<>();
+        StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < N; i++) {
-            int rs = -1;
-            for (int j = i + 1; j < N; j++) {
-                if (arr[i] < arr[j]) {
-                    rs = arr[j];
-                    break;
-                }
+            while (!stack.isEmpty() && A[stack.peek()] < A[i]) {
+                A[stack.pop()] = A[i];
             }
-            sb.append(rs).append(' ');
+
+            stack.push(i);
+        }
+
+        while (!stack.isEmpty()) {
+            A[stack.pop()] = -1;
+        }
+
+        for (int a : A) {
+            sb.append(a).append(' ');
         }
 
         System.out.println(sb);
+    }
+
+    private static int readInt() throws IOException {
+        int rs = 0;
+        boolean isNegative = false;
+        int c = System.in.read();
+        while (c <= ' ') {
+            c = System.in.read();
+        }
+        if (c == '-') {
+            isNegative = true;
+            c = System.in.read();
+        }
+        while (c >= '0' && c <= '9') {
+            rs = rs * 10 + c - '0';
+            c = System.in.read();
+        }
+        return isNegative ? -rs : rs;
     }
 }

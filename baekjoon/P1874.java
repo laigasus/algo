@@ -1,43 +1,66 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Stack;
 
 public class P1874 {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        int n = Integer.parseInt(br.readLine());
-        List<Integer> list = new ArrayList<>();
+        final int N = readInt();
 
-        for (int i = 0; i < n; i++) {
-            list.add(Integer.parseInt(br.readLine()));
+        Stack<Integer> st = new Stack<>();
+        StringBuilder sb = new StringBuilder();
+
+        int num = 1;
+        boolean isValid = true;
+        loop: for (int i = 0; i < N; i++) {
+            int required = readInt();
+
+            if (!isValid) {
+                continue loop;
+            }
+
+            do {
+                if (st.isEmpty()) {
+                    st.push(num);
+                    sb.append('+').append('\n');
+                    continue;
+                }
+
+                switch (Integer.compare(st.peek(), required)) {
+                    case -1:
+                        st.push(num);
+                        sb.append('+').append('\n');
+                        break;
+                    case 0:
+                        st.pop();
+                        sb.append('-').append('\n');
+                        continue loop;
+                    case 1:
+                        st.pop();
+                        sb.append('-').append('\n');
+                        break;
+                }
+            } while (num++ <= N);
+
+            isValid = false;
         }
 
-        Stack<Integer> stack = new Stack<>();
+        System.out.print(isValid ? sb.toString() : "NO");
+    }
 
-        int idx = 0;
-        int num = 1;
-        do {
-            if (num <= list.get(idx)) {
-                sb.append("+").append("\n");
-                stack.push(num++);
-            } else {
-                if (stack.peek() == list.get(idx)) {
-                    sb.append("-").append("\n");
-                    stack.pop();
-                    idx++;
-                } else {
-                    sb = new StringBuilder();
-                    sb.append("NO").append("\n");
-                    break;
-                }
-            }
-        } while (idx < n);
-
-        System.out.print(sb);
-        br.close();
+    private static int readInt() throws IOException {
+        int rs = 0;
+        boolean isNegative = false;
+        int c = System.in.read();
+        while (c <= ' ') {
+            c = System.in.read();
+        }
+        if (c == '-') {
+            isNegative = true;
+            c = System.in.read();
+        }
+        while (c >= '0' && c <= '9') {
+            rs = rs * 10 + c - '0';
+            c = System.in.read();
+        }
+        return isNegative ? -rs : rs;
     }
 }
