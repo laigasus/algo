@@ -1,25 +1,20 @@
 import java.io.IOException;
+import java.util.Arrays;
 
-public class P10989 {
+public class P11004 {
     public static void main(String[] args) throws IOException {
-        final int max = 10000;
-        int N = readInt();
+        final int N = readInt();
+        int[] A = new int[N];
 
-        int[] arr = new int[max + 1];
+        final int K = readInt();
 
-        while (N-- > 0) {
-            arr[readInt()]++;
+        for (int i = 0; i < N; i++) {
+            A[i] = readInt();
         }
 
-        StringBuilder sb = new StringBuilder();
-        for (int num = 1; num <= max; num++) {
-            while (arr[num] > 0) {
-                sb.append(num).append('\n');
-                arr[num]--;
-            }
-        }
+        Arrays.sort(A);
 
-        System.out.print(sb);
+        System.out.println(A[K - 1]);
     }
 
     private static int readInt() throws IOException {

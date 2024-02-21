@@ -1,26 +1,23 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class P1427 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        String str = br.readLine();
+
+        char[] arr = str.toCharArray();
+
+        Arrays.sort(arr);
+
         StringBuilder sb = new StringBuilder();
-        String N = br.readLine();
-        br.close();
-
-        int[] arr = new int[10];
-
-        for (int i = 0; i < N.length(); i++) {
-            arr[Character.getNumericValue(N.charAt(i))]++;
+        for (int i = arr.length - 1; i >= 0; i--) {
+            sb.append(arr[i]);
         }
 
-        for (int i = 9; i >= 0; i--) {
-            while (arr[i] > 0) {
-                sb.append(i);
-                arr[i]--;
-            }
-        }
         System.out.println(sb);
     }
 }
