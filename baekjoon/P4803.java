@@ -10,13 +10,7 @@ public class P4803 {
         StringBuilder sb = new StringBuilder();
 
         int repeat = 1;
-        while (true) {
-            N = readInt();
-            M = readInt();
-            if (N == 0 && M == 0) {
-                break;
-            }
-
+        while ((N = readInt()) > 0 && (M = readInt()) <= N * (N - 1) / 2) {
             parent = IntStream.rangeClosed(0, N).toArray();
 
             while (M-- > 0) {
@@ -38,14 +32,15 @@ public class P4803 {
             sb.append("Case ").append(repeat++).append(": ");
             switch (trees.size()) {
                 case 0:
-                    sb.append("No trees.");
+                    sb.append("No");
                     break;
                 case 1:
-                    sb.append("There is one tree.");
+                    sb.append("There is one");
                     break;
                 default:
-                    sb.append("A forest of ").append(trees.size()).append(" trees.");
+                    sb.append("A forest of ").append(trees.size());
             }
+            sb.append(trees.size() == 1 ? " tree." : " trees.");
             sb.append('\n');
         }
 

@@ -3,46 +3,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class P11724 {
-
     static List<List<Integer>> graph = new ArrayList<>();
     static boolean[] visited;
-    static int N, M;
 
     public static void main(String[] args) throws IOException {
-        N = readInt();
-        M = readInt();
+        final int N = readInt();
+        int M = readInt();
 
         visited = new boolean[N + 1];
-
         for (int i = 0; i <= N; i++) {
             graph.add(new ArrayList<>());
         }
 
         while (M-- > 0) {
-            int u = readInt();
-            int v = readInt();
+            int a = readInt();
+            int b = readInt();
 
-            graph.get(u).add(v);
-            graph.get(v).add(u);
+            graph.get(a).add(b);
+            graph.get(b).add(a);
         }
 
-        int cnt = 0;
+        int result = 0;
         for (int node = 1; node <= N; node++) {
             if (!visited[node]) {
-                cnt++;
-                calc(node);
+                result++;
+                DFS(node);
             }
         }
 
-        System.out.println(cnt);
+        System.out.println(result);
     }
 
-    static void calc(int now) {
+    private static void DFS(int now) {
         visited[now] = true;
 
-        for (int next : graph.get(now)) {
+        for (var next : graph.get(now)) {
             if (!visited[next]) {
-                calc(next);
+                DFS(next);
             }
         }
     }
