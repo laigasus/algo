@@ -1,9 +1,15 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class P1016 {
     public static void main(String[] args) throws IOException {
-        long min = readLong();
-        long max = readLong();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        long min = Long.parseLong(st.nextToken());
+        long max = Long.parseLong(st.nextToken());
 
         boolean[] check = new boolean[(int) (max - min + 1)];
 
@@ -21,30 +27,12 @@ public class P1016 {
         }
 
         int result = 0;
-        for (int i = 0; i < max - min; i++) {
+        for (int i = 0; i <= max - min; i++) {
             if (!check[i]) {
                 result++;
             }
         }
 
         System.out.println(result);
-    }
-
-    private static int readLong() throws IOException {
-        int rs = 0;
-        boolean isNegative = false;
-        int c = System.in.read();
-        while (c <= ' ') {
-            c = System.in.read();
-        }
-        if (c == '-') {
-            isNegative = true;
-            c = System.in.read();
-        }
-        while (c >= '0' && c <= '9') {
-            rs = rs * 10 + c - '0';
-            c = System.in.read();
-        }
-        return isNegative ? -rs : rs;
     }
 }
