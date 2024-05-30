@@ -22,7 +22,8 @@ class S20551 {
             }
 
             int cnt = 0;
-            loop: do {
+            loop:
+            do {
                 cnt += calibrate();
                 if (isUnder1()) {
                     cnt = -1;
