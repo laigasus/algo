@@ -9,31 +9,8 @@ const arr: Array<number> = str.split(" ").map(Number);
 
 const [a, b] = arr;
 
-class Calc {
-
-
-
-    add(a: number, b: number): number {
-        return a + b;
-    }
-
-    subtract(a: number, b: number): number {
-        return a - b;
-    }
-
-    divide(a: number, b: number): number {
-        return a / b;
-    }
-
-    multiply(a: number, b: number): number {
-        return a * b;
-    }
-
-    remains(a: number, b: number): number {
-        return a % b;
-    }
+function multiply(a: number, b: number): number {
+    return a * b;
 }
-
-
 
 console.log(multiply(a, b));
