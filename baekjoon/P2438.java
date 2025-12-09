@@ -5,12 +5,14 @@ import java.io.InputStreamReader;
 public class P2438 {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        int repeat = Integer.parseInt(bf.readLine());
-        for (int i = 1; i <= repeat; i++) {
-            sb.append(new String("*").repeat(i) + "\n");
+        final int N = Integer.parseInt(bf.readLine());
+        String[] arr = new String[N];
+
+        for (int i = 0; i < N; i++) {
+            arr[i] = "*".repeat(i + 1);
         }
-        System.out.print(sb);
+
+        System.out.print(String.join("\n", arr));
         bf.close();
     }
 }
